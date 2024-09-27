@@ -1,6 +1,7 @@
 package com.atletica.mensal.Entities;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +19,7 @@ public class PostagemEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Long valor;
+	private String texto;
 	private String observacao;
 	private String lote;
 	private String whatsappLink;
@@ -31,5 +33,7 @@ public class PostagemEntity {
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private UserEntity user;
+
+	
 
 }
