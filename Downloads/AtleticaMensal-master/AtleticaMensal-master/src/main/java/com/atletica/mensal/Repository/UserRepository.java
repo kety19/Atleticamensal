@@ -1,5 +1,7 @@
 package com.atletica.mensal.Repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.atletica.mensal.Entities.UserEntity;
@@ -7,6 +9,5 @@ import com.atletica.mensal.Entities.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
     
-	UserEntity findByEmail(String email);
-	
+	Optional<UserEntity> findByEmail(String email);	
 }
