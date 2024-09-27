@@ -50,10 +50,6 @@ public class RankingService {
 			System.out.println(e.getCause());
 			return new RankingEntity();
 		}
-	}
-	
-	
-	
-	
+	}	
 	
 }
