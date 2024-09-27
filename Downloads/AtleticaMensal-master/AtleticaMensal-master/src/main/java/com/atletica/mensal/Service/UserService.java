@@ -7,33 +7,33 @@ import org.springframework.stereotype.Service;
 
 import com.atletica.mensal.Entities.UserEntity;
 import com.atletica.mensal.Repository.UserRepository;
+
 @Service
 public class UserService {
-    @Autowired
-    private UserRepository userRepository;
+	@Autowired
+	private UserRepository userRepository;
 
-    public UserEntity findByEmail(String email) {
-        
-        if (email == null || email.isEmpty()) {
-            throw new IllegalArgumentException("o email nao pode estar vazio");
-        }
-        
-        Optional<UserEntity> user = Optional.ofNullable(userRepository.findByEmail(email));
-        
-        return userRepository.findByEmail(email);
-    }
+	public UserService(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
-    public UserEntity save(UserEntity user) {
-        return userRepository.save(user);
-    }
-    
-    public void deletarUser(Long id) {
-        UserEntity user = buscarUserPorId(id)
-                .orElseThrow(() -> new RuntimeException("usuario não encontrado"));
-        userRepository.delete(user);
-    }
-    
-    public Optional<UserEntity> buscarUserPorId(Long id) {
-        return userRepository.findById(id);
-    }
+	public UserEntity findByEmail(String email) {
+		if (email == null || email.isEmpty()) {
+			throw new IllegalArgumentException("O email não pode estar vazio");
+		}
+		return userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+	}
+
+	public UserEntity save(UserEntity user) {
+		return userRepository.save(user);
+	}
+
+	public void deletarUser(Long id) {
+		UserEntity user = buscarUserPorId(id).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+		userRepository.delete(user);
+	}
+
+	public Optional<UserEntity> buscarUserPorId(Long id) {
+		return userRepository.findById(id);
+	}
 }
