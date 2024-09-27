@@ -27,8 +27,8 @@ public class AtleticaController {
 	public AtleticaEntity criarAtletica(@RequestBody AtleticaEntity atletica) {
 		return atleticaService.salvarAtletica(atletica);
 	}
-
-	@GetMapping
+//comentario tteste
+	@GetMapping(value = "/listarAtleticas")
 	public List<AtleticaEntity> listarTodasAtleticas() {
 		return atleticaService.listarTodasAtleticas();
 	}
