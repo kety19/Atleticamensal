@@ -1,10 +1,10 @@
 package com.atletica.mensal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
@@ -16,8 +16,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.atletica.mensal.Controller.PostagemController;
@@ -47,6 +45,37 @@ public class PostagemControllerTest {
         MockitoAnnotations.openMocks(this); // Inicializa mocks
     }
 
+
+   /* @Test
+    void testCriarPostagem() throws Exception {
+        // Criar mock para UserEntity
+        UserEntity mockUser = new UserEntity();
+        mockUser.setId(1L);  // Definir um ID para o usuário
+        mockUser.setEmail("Atletica Ursao");
+        
+        // Simular o retorno do método userService.findByEmail com o email correto
+        when(userService.findByEmail("Atletica Ursao")).thenReturn(mockUser);
+        
+        // Criar um mock de postagem
+        PostagemEntity post = new PostagemEntity();
+        post.setImagem("Nova Festa");
+
+        // Simular o comportamento do método criarPostagem no PostagemService
+        when(postagemService.criarPostagem(anyLong(), any(PostagemEntity.class), anyLong())).thenReturn(post);
+        
+        // Nova postagem a ser criada
+        PostagemEntity novaPostagem = new PostagemEntity();
+        novaPostagem.setImagem("Nova Festa");
+
+        // Chamar o método do controller
+        PostagemEntity resultado = postagemController.criarPostagem( novaPostagem, "atletica@gmail.com" );
+
+        // Verificar se o resultado não é nulo
+        assertNotNull(resultado, "O resultado não deveria ser nulo");
+
+        // Verificar se a imagem da postagem retornada é a esperada
+        assertEquals("Nova Festa", resultado.getImagem());
+    }*/
     @Test
     void testCriarPostagem() throws Exception {
         UserEntity mockUser = new UserEntity();
@@ -76,6 +105,7 @@ public class PostagemControllerTest {
         // Verificar se a imagem da postagem retornada é a esperada
         assertEquals("Nova Festa", resultado.getImagem());
     }
+
     @Test
     public void testListarPostagensPorAtletica() throws Exception {
         // Criação das entidades de postagens com imagem
