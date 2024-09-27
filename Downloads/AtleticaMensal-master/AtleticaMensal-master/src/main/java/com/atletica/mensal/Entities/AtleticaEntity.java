@@ -26,6 +26,6 @@ public class AtleticaEntity {
     
     @Column(name = "dono_id")
     private Long donoId; 
-
+    @Column(name = "pontuacao_total")
     private int pontuacaoTotal;
 }
