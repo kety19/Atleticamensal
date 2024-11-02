@@ -1,0 +1,17 @@
+<div class="ranking-container">
+  <h2>Ranking das Atléticas</h2>
+
+  <div class="ranking-board">
+    <table>
+      <thead>
+        <tr>
+          <th>Atlética</th>
+          <th>Pontos Totais</th>
+          <th>Número de Usuários</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ranking of groupedRankings">
+          <td>{{ ranking.nome }}</td>
+          <td>{{ ranking.pontosTotais }}</td>
+          <td>{{ ranking.usuarioCount }}</td>

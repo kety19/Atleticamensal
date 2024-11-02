@@ -1,0 +1,16 @@
+<div class="atletica-container">
+  <h2>Cadastro de Atlética</h2>
+  
+  <form (ngSubmit)="addAtletica()">
+    <input type="text" [(ngModel)]="newAtletica.nome" name="nome" placeholder="Nome da Atlética" required />
+    <input type="text" [(ngModel)]="newAtletica.universidade" name="universidade" placeholder="Universidade" required />
+    <textarea [(ngModel)]="newAtletica.descricao" name="descricao" placeholder="Descrição" required></textarea>
+    
+    <button type="submit">Cadastrar Atlética</button>
+  </form>
+
+  <!-- Botão para criar postagem, visível apenas após o cadastro da atlética -->
+  <button *ngIf="showCreatePostButton" (click)="goToCreatePost()" class="create-post-btn">
+    Criar Postagem
+  </button>
+</div>

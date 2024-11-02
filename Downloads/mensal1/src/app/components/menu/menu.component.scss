@@ -1,0 +1,19 @@
+// menu.component.scss
+.nav-menu {
+    display: flex;
+    justify-content: center; // Centraliza os links no meio da tela
+    gap: 20px; // Espaçamento entre os links
+    padding: 10px;
+    background-color: #f5f5f5; // Cor de fundo para visualização
+    width: 100%;
+
+    a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        
+        &:hover {
+            color: #0056b3;
+        }
+    }
+}

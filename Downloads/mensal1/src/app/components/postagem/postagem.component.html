@@ -1,0 +1,27 @@
+<div class="postagem-container">
+  <h2>Postagens de Eventos</h2>
+
+  <!-- Formulário de postagem, exibido apenas para usuários com o papel ATLETICA -->
+  <form *ngIf="isAtletica" (ngSubmit)="addPostagem()" class="postagem-form">
+    <input type="text" [(ngModel)]="newPostagem.titulo" name="titulo" placeholder="Título do Evento" required />
+    <textarea [(ngModel)]="newPostagem.descricao" name="descricao" placeholder="Descrição do Evento" required></textarea>
+    <input type="date" [(ngModel)]="newPostagem.data" name="data" required />
+    <input type="text" [(ngModel)]="newPostagem.local" name="local" placeholder="Local do Evento" required />
+    <input type="text" [(ngModel)]="newPostagem.imagemUrl" name="imagemUrl" placeholder="URL da Imagem do Evento" />
+    
+    <button type="submit">Adicionar Postagem</button>
+  </form>
+
+  <div class="postagens-list">
+    <div class="postagem-card" *ngFor="let postagem of postagens">
+      <h3>{{ postagem.titulo }}</h3>
+      <p>{{ postagem.descricao }}</p>
+      <p><strong>Data:</strong> {{ postagem.data | date }}</p>
+      <p><strong>Local:</strong> {{ postagem.local }}</p>
+      <img *ngIf="postagem.imagemUrl" [src]="postagem.imagemUrl" alt="{{ postagem.titulo }}" class="postagem-imagem" />
+      
+      <!-- Botão de excluir, exibido apenas para usuários com o papel ATLETICA -->
+      <button *ngIf="isAtletica" (click)="deletePostagem(postagem.id)">Excluir</button>
+    </div>
+  </div>
+</div>

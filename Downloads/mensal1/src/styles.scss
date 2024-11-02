@@ -1,0 +1,105 @@
+/* Importa fontes e bibliotecas de estilo */
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import 'mdb-angular-ui-kit/assets/scss/mdb.scss';
+
+/* Estilos globais */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.page-background {
+  background-image: url('/assets/imagens/fundo.jpg');
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; // Garante que a imagem fique atrás de todo o conteúdo
+}
+
+/* Container principal */
+.container {
+  display: flex;
+  justify-content: center;     // Centraliza horizontalmente
+  align-items: center;
+  flex-direction: column;      // Coloca os itens em coluna
+  min-height: 100vh;           // Altura mínima da tela inteira
+  background-color: rgba(244, 244, 244, 0.9); // Fundo ligeiramente transparente para destacar o conteúdo sobre a imagem
+  padding: 20px;
+  position: relative;
+  z-index: 1; // Coloca o conteúdo acima da imagem de fundo
+}
+
+/* Estilos para o formulário */
+form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;            // Limita a largura do formulário
+  margin-bottom: 20px;
+
+  input, textarea {
+    width: 100%;               // Campos ocupam 100% da largura disponível
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    width: 100%;               // Botão ocupa toda a largura
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+/* Estilos para a lista de atléticas */
+.lista-atleticas {
+  width: 100%;
+  max-width: 600px;            // Limita a largura das listas
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .atletica-item {
+    display: flex;
+    justify-content: space-between;  // Mantém o espaçamento entre nome e botão
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+
+    &:last-child {
+      border-bottom: none;      // Remove a borda do último item
+    }
+
+    button {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #c82333;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px; /* ajuste a largura conforme necessário */
+  height: 100vh;
+  background-color: #2c3e50; /* cor de fundo da barra lateral */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sidebar a {
+  color: #ecf0f1; /* cor do texto */
+  text-decoration: none;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #34495e; /* cor de fundo ao passar o mouse */
+}
+
+.active-link {
+  background-color: #1abc9c; /* cor de fundo para o link ativo */
+}
